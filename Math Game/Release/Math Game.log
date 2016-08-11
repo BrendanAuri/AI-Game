@@ -1,0 +1,109 @@
+﻿  AI.cpp
+c:\users\brend\desktop\math game\math game\AI.h(18): error C2143: syntax error: missing ';' before '<'
+c:\users\brend\desktop\math game\math game\AI.h(18): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\brend\desktop\math game\math game\AI.h(18): error C2238: unexpected token(s) preceding ';'
+c:\users\brend\desktop\math game\math game\AI.h(19): error C2143: syntax error: missing ';' before '<'
+c:\users\brend\desktop\math game\math game\AI.h(19): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\brend\desktop\math game\math game\AI.h(19): error C2238: unexpected token(s) preceding ';'
+c:\users\brend\desktop\math game\math game\AI.h(21): error C2061: syntax error: identifier 'vector'
+c:\users\brend\desktop\math game\math game\AI.h(46): error C2143: syntax error: missing ';' before '<'
+c:\users\brend\desktop\math game\math game\AI.h(46): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\brend\desktop\math game\math game\AI.h(46): error C2238: unexpected token(s) preceding ';'
+c:\users\brend\desktop\math game\math game\AI.h(51): error C2143: syntax error: missing ';' before '<'
+c:\users\brend\desktop\math game\math game\AI.h(51): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\brend\desktop\math game\math game\AI.h(51): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+AI.cpp(12): error C2065: 'edge': undeclared identifier
+AI.cpp(12): error C2228: left of '.push_back' must have class/struct/union
+  AI.cpp(12): note: type is 'unknown-type'
+AI.cpp(42): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(42): error C2228: left of '.resize' must have class/struct/union
+AI.cpp(47): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(47): error C2228: left of '.push_back' must have class/struct/union
+AI.cpp(54): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(54): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(54): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(54): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(55): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(55): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(58): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(58): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(58): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(58): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(59): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(59): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(62): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(62): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(62): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(62): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(63): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(63): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(67): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(67): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(67): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(67): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(68): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(68): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(73): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(73): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(73): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(73): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(74): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(74): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(78): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(78): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(78): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(78): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(79): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(79): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(83): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(83): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(83): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(83): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(84): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(84): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(88): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(88): error C2664: 'Edge::Edge(Edge &&)': cannot convert argument 1 from 'int' to 'const Edge &'
+  AI.cpp(88): note: Reason: cannot convert from 'int' to 'const Edge'
+  AI.cpp(88): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+AI.cpp(89): error C2039: 'nodes': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(89): error C2227: left of '->addEdge' must point to class/struct/union/generic type
+AI.cpp(105): error C2511: 'bool Map::findNode(std::vector<Node *,std::allocator<_Ty>>,Node *)': overloaded member function not found in 'Map'
+          with
+          [
+              _Ty=Node *
+          ]
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(118): error C2039: 'dijkstra': is not a member of 'Map'
+  c:\users\brend\desktop\math game\math game\AI.h(16): note: see declaration of 'Map'
+AI.cpp(132): error C2039: 'edge': is not a member of 'Node'
+  c:\users\brend\desktop\math game\math game\AI.h(42): note: see declaration of 'Node'
+AI.cpp(132): error C2228: left of '.size' must have class/struct/union
+AI.cpp(133): error C2039: 'edge': is not a member of 'Node'
+  c:\users\brend\desktop\math game\math game\AI.h(42): note: see declaration of 'Node'
+AI.cpp(134): error C3861: 'findNode': identifier not found
+AI.cpp(138): error C3861: 'findNode': identifier not found
+  main.cpp
+c:\users\brend\desktop\math game\math game\window.h(6): error C2143: syntax error: missing ';' before '*'
+c:\users\brend\desktop\math game\math game\window.h(6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\brend\desktop\math game\math game\window.h(6): error C2061: syntax error: identifier 'Grid'
+c:\users\brend\desktop\math game\math game\window.h(141): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\brend\desktop\math game\math game\window.h(142): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\brend\desktop\math game\math game\AI.h(59): error C2040: 'map': 'Map' differs in levels of indirection from 'int *'

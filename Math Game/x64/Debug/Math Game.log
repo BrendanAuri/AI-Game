@@ -1,0 +1,5 @@
+﻿  main.cpp
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\brend\Desktop\SDL2-2.0.4\lib\x86\SDL2.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\Users\brend\Desktop\SDL2-2.0.4\lib\x86\SDL2main.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+c:\users\brend\documents\visual studio 2015\Projects\Math Game\x64\Debug\Math Game.exe : fatal error LNK1120: 1 unresolved externals

@@ -1,0 +1,32 @@
+﻿Build started 12/04/2015 2:28:18 PM.
+     1>Project "D:\SDL2\SDL2_gfx-1.0.1\test\TestRotozoom.vcxproj" on node 4 (Rebuild target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\sdl2gfx /I..\..\SDL2_gfx /I..\..\SDL\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"TestRotozoom\Win32\Debug\\" /Fd"TestRotozoom\Win32\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt TestRotozoom.c
+         TestRotozoom.c
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"TestRotozoom\Win32\Debug\TestRotozoom.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\sdl2gfx\Win32\Debug /LIBPATH:..\..\SDL2_gfx\Win32\Debug /LIBPATH:..\..\SDL\VisualC\Win32\Debug /LIBPATH:..\..\SDL\VisualC\Win32\Debug SDL2.lib SDL2main.lib SDL2test.lib SDL2_gfx.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:msvcrtd.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SDL2\SDL2_gfx-1.0.1\test\TestRotozoom\Win32\Debug\TestRotozoom.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /IMPLIB:"TestRotozoom\Win32\Debug\TestRotozoom.lib" /SAFESEH /MACHINE:X86 TestRotozoom\Win32\Debug\TestRotozoom.obj
+         "D:\SDL2\SDL2_gfx-1.0.1\Win32\Debug\SDL2_gfx.lib"
+     1>TestRotozoom.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         TestRotozoom.vcxproj -> D:\SDL2\SDL2_gfx-1.0.1\test\TestRotozoom\Win32\Debug\TestRotozoom.exe
+       PostBuildEvent:
+         
+         copy /y "..\..\SDL\VisualC\Win32\Debug\SDL2.dll" "TestRotozoom\Win32\Debug\SDL2.dll"
+         copy /y "..\Win32\Debug\SDL2_gfx.dll" "TestRotozoom\Win32\Debug\SDL2_gfx.dll"
+         copy /y ".\sample*.bmp" "D:\SDL2\SDL2_gfx-1.0.1\test\TestRotozoom\Win32\Debug\
+               
+         :VCEnd
+         The system cannot find the path specified.
+                 1 file(s) copied.
+         .\sample16x16.bmp
+         .\sample24-box.bmp
+         .\sample24.bmp
+         .\sample2x2.bmp
+         .\sample3x3.bmp
+         .\sample8-box.bmp
+         .\sample8.bmp
+                 7 file(s) copied.
+     1>Done Building Project "D:\SDL2\SDL2_gfx-1.0.1\test\TestRotozoom.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.32
