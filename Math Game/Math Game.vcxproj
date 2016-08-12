@@ -85,12 +85,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\brend\Desktop\Math Assessment\Math Assessment;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;Math Assessment.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\brend\Desktop\Math Assessment\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\Math\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -111,13 +111,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>dependencies\Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\include;dependencies\Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>dependencies\Math\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;Math Assessment.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\lib\x86;dependencies\Math\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;Math Assessment.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

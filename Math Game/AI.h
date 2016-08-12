@@ -9,17 +9,26 @@
 #include <list>
 #include <memory>
 
+using namespace std;
+
 class Edge;
-class Node;
 
-class Map {
+class Node
+{
 public:
-	vector<vector<Node*>> nodes;
-	vector<Node*>  dijkstra(Node * from, Node * to);
-	//~Map();
-	bool findNode(vector<Node*> vec, Node * node);
-};
+	Vector2 myVec = Vector2(0, 0); // x y and travelled bool
+	bool traversed;
+	std::vector<Edge *> edge;
+	void addEdge(Edge * newEdge);
+	Node(int x, int y, bool travelled);
+	int costFromStart;
+	Node * from;
+	std::vector<Edge*> getPaths();
+	void setVisited(bool v) { traversed = v; };
+	bool isVisited() { return traversed; }
 
+
+};
 
 class Edge {
 public:
@@ -37,25 +46,12 @@ public:
 
 };
 
-class  Node
-{
+class Map {
 public:
-	Vector2 myVec; // x y and travelled bool
-	bool traversed;
-	vector<Edge *> edge;
-	void addEdge(Edge * newEdge);
-	Node(int x, int y, bool travelled);
-	int costFromStart;
-	Node * from;
-	vector<Edge*> getPaths() { return edge; };
-	void setVisited(bool v) { traversed = v; };
-	bool isVisited() { return traversed; }
-
-
+	vector<Node*> nodes;
+	bool findNode(vector<Node*> vec, Node * node);
+	Node* getNodeFromPos(Vector2 pos);
+	vector<Node*> dijkstra(Node * from, Node * to);
+	//~Map();
+	Map();
 };
-
-
-extern Map map;
-
-extern void setUp(SDL_Renderer * rend);
-

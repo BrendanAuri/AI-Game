@@ -3,10 +3,6 @@
 #include <iostream>
 #include <algorithm>
 #include "settings.h"
-
-using namespace std;
-Map map;
-
 void Node::addEdge(Edge * newEdge)
 {
 	edge.push_back(newEdge);
@@ -17,7 +13,11 @@ Node::Node(int x, int y, bool travelled)
 	this->myVec.x = (float)x;
 	this->myVec.y = (float)y;
 	this->traversed = travelled;
-};
+}
+vector<Edge*> Node::getPaths()
+{
+	return this->edge;
+}
 
 
 Edge::Edge(int p_cost, Node * p_from, Node * p_to)
@@ -25,81 +25,13 @@ Edge::Edge(int p_cost, Node * p_from, Node * p_to)
 	cost = p_cost;
 	from = p_from;
 	to = p_to;
-};
+}
 
 void Edge::draw(SDL_Renderer * rend)
 {
 	SDL_SetRenderDrawColor(rend, 255, 255, 255, 0);
-	SDL_Rect rect;
-	rect.x = ((int)from->myVec.x - 1);
-	rect.y = ((int)from->myVec.y - 1);
-	rect.h = 3;
-	rect.w = 3;
-	SDL_RenderDrawRect(rend, &rect);
-};
-
-void setUp(SDL_Renderer * rend) {
-	map.nodes.resize(COLS);
-
-	for (int x = 0; x < ROWS; x++) {
-		for (int y = 0; y < ROWS; y++) {
-			Node* np = new Node(x * 40, y * 40, 0);
-			map.nodes[x].push_back(np);
-		}
-	}
-
-	for (int x = 0; x < COLS; x++) {
-		for (int y = 0; y < ROWS; y++) {
-			if (x - 1 < 0 == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x - 1][y]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-			if (x + 1 >= COLS == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x + 1][y]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-			if (y - 1 < 0 == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x][y - 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-			if (y + 1 >= ROWS == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x][y + 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-
-			if (x - 1 < 0 == false && y - 1 < 0 == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x - 1][y - 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-			if (x + 1 >= COLS == false && y - 1 < 0 == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x + 1][y - 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-			if (x + 1 >= COLS == false && y + 1 >= ROWS == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x + 1][y + 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-			if (x - 1 < 0 == false && y + 1 >= ROWS == false) {
-				Edge * ep = new Edge(1, map.nodes[x][y], map.nodes[x - 1][y + 1]);
-				map.nodes[x][y]->addEdge(ep);
-			}
-
-		}
-	}
-
-};
-
-bool compareG(Node * a, Node * b)
-{
-	return a->costFromStart < b->costFromStart;
-};
-
-
+	SDL_RenderDrawLine(rend, this->from->myVec.x, this->from->myVec.y, this->to->myVec.x, this->to->myVec.y);
+}
 
 bool Map::findNode(vector<Node*> vec, Node * node)
 {
@@ -111,9 +43,47 @@ bool Map::findNode(vector<Node*> vec, Node * node)
 		}
 	}
 	return result;
+}
+Node * Map::getNodeFromPos(Vector2 pos) {
+	for (int i = 0; i < nodes.size(); i++) {
+		if (this->nodes[i]->myVec.x == pos.x && this->nodes[i]->myVec.y == pos.y) {
+			return nodes[i];
+		}
+	}
+
+	return nullptr;
+}
+
+Map::Map() {
+	//this->nodes.resize(COLS * ROWS);
+
+	for (int x = 0; x < COLS; x++) {
+		for (int y = 0; y < ROWS; y++) {
+			if(!(y == x * x  + 3 || x == y * y + 3 || x == y % 10))
+				this->nodes.push_back(new Node(OFFSET + x * UNIT, OFFSET + y * UNIT, 0));
+		}
+	}
+
+	for (int i = 0; i < nodes.size(); i++){
+		if (getNodeFromPos(Vector2(this->nodes[i]->myVec.x + UNIT, this->nodes[i]->myVec.y)) != nullptr) {
+			this->nodes[i]->addEdge(new Edge(UNIT, this->nodes[i], getNodeFromPos(Vector2(this->nodes[i]->myVec.x + UNIT, this->nodes[i]->myVec.y))));
+		}
+		if (getNodeFromPos(Vector2(this->nodes[i]->myVec.x - UNIT, this->nodes[i]->myVec.y)) != nullptr) {
+			this->nodes[i]->addEdge(new Edge(UNIT, this->nodes[i], getNodeFromPos(Vector2(this->nodes[i]->myVec.x - UNIT, this->nodes[i]->myVec.y))));
+		}
+		if (getNodeFromPos(Vector2(this->nodes[i]->myVec.x, this->nodes[i]->myVec.y + UNIT)) != nullptr) {
+			this->nodes[i]->addEdge(new Edge(UNIT, this->nodes[i], getNodeFromPos(Vector2(this->nodes[i]->myVec.x, this->nodes[i]->myVec.y + UNIT))));
+		}
+		if (getNodeFromPos(Vector2(this->nodes[i]->myVec.x, this->nodes[i]->myVec.y - UNIT)) != nullptr) {
+			this->nodes[i]->addEdge(new Edge(UNIT, this->nodes[i], getNodeFromPos(Vector2(this->nodes[i]->myVec.x, this->nodes[i]->myVec.y - UNIT))));
+		}
+	}
 };
 
-
+bool compareG(Node * a, Node * b)
+{
+	return a->costFromStart < b->costFromStart;
+};
 
 vector<Node*> Map::dijkstra(Node * from, Node * to)
 {
@@ -159,4 +129,4 @@ vector<Node*> Map::dijkstra(Node * from, Node * to)
 	}
 	std::reverse(path.begin(), path.end());
 	return path;
-};
+}

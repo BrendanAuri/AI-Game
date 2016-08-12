@@ -25,7 +25,6 @@ using std::endl;
 using std::string;
 
 
-
 int main(int argc, char* args[])
 {
 	Window window("Math Game", SCREEN_WIDTH, SCREEN_HEIGHT);

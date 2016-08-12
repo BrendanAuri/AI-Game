@@ -13,7 +13,8 @@
 #include <vector>
 #include <fstream>
 #include "settings.h"
-#include<algorithm>
+#include <algorithm>
+#include "AI.h"
 
 Matrix3 world;
 
@@ -68,4 +69,3 @@ public:
 		SDL_RenderCopyEx(rend, tex, NULL, &rect, angle * 57.2958, NULL, SDL_FLIP_NONE);
 	}
 };
-

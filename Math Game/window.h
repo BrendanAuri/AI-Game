@@ -2,8 +2,9 @@
 #include <SDL.h>
 #include <fstream>
 #include "objects.h"
+#include "AI.h"
 
-Grid* map = new Grid(16, 12);
+Map map;
 
 using namespace std;
 
@@ -11,27 +12,26 @@ Object obj;
 Object chl;
 Object tile;
 vector<Object> tiles;
-SDL_Surface * objTex = IMG_Load("img/pugdungeon.png");
-SDL_Surface * chlTex = IMG_Load("img/asteroids.png");
+SDL_Surface * objTex = IMG_Load("img/greendude.png");
 SDL_Surface * tlsTex = IMG_Load("img/dirt.png");
 
-void saving() {
-	std::ofstream save("sav.bin", std::ios::out | ios::binary);
-	if (save.good()) {
-		save.write((char*)&obj.localSpace, sizeof(Matrix3));
-		save.write((char*)&chl.localSpace, sizeof(Matrix3));
-	}		
-	save.close();
-}
-
-void loading() {
-	std::ifstream load("sav.bin", std::ios::in | ios::binary);
-	if (load.good()) {
-		load.read((char*)&obj.localSpace, sizeof(Matrix3));
-		load.read((char*)&chl.localSpace, sizeof(Matrix3));
-	}	
-	load.close();
-}
+//void saving() {
+//	std::ofstream save("sav.bin", std::ios::out | ios::binary);
+//	if (save.good()) {
+//		save.write((char*)&obj.localSpace, sizeof(Matrix3));
+//		save.write((char*)&chl.localSpace, sizeof(Matrix3));
+//	}		
+//	save.close();
+//}
+//
+//void loading() {
+//	std::ifstream load("sav.bin", std::ios::in | ios::binary);
+//	if (load.good()) {
+//		load.read((char*)&obj.localSpace, sizeof(Matrix3));
+//		load.read((char*)&chl.localSpace, sizeof(Matrix3));
+//	}	
+//	load.close();
+//}
 
 class Window {
 private:
@@ -64,15 +64,16 @@ bool Window::initialize() {
 	if (SDLWindow == nullptr) return false;
 
 	SDLRender = SDL_CreateRenderer(SDLWindow, 0, SDL_RENDERER_ACCELERATED);
-
+	this->surface = SDL_GetWindowSurface(this->SDLWindow);
 	if (tile.tex == nullptr) tile.tex = tile.loadTexture(SDLRender, tlsTex);
+
 	for (int x = 0; x < 16; x++) {
 		for (int y = 0; y < 12; y++) {
 			tiles.push_back(tile);
 		}
 	}
 
-	loading();
+	/*loading();*/
 
 	return true;
 }
@@ -98,7 +99,7 @@ Window::Window(const char * windowName, int screenWidth, int screenHeight) {
 }
 
 void Window::close() {
-	saving();
+	//saving();
 	SDL_DestroyWindow(this->SDLWindow);
 	if (SDLRender != nullptr) {
 		SDL_DestroyRenderer(this->SDLRender);
@@ -144,11 +145,33 @@ void Window::Draw(SDL_Renderer* renderer, SDL_Event* e) {
 		}
 	}
 
-	//if (obj.tex == nullptr) { obj.tex = obj.loadTexture(SDLRender, objTex); }
+	if (obj.tex == nullptr) { obj.tex = obj.loadTexture(SDLRender, objTex); }
 	//if (chl.tex == nullptr) { chl.tex = chl.loadTexture(SDLRender, chlTex); }
+
 	//move();
-	//obj.draw(this->SDLRender, obj.tex);
+
+	int start = 5;
+	int goal = 50;
+
+	obj.draw(this->SDLRender, obj.tex);
 	//chl.draw(this->SDLRender, obj.tex);
+	SDL_Rect rect = {0, 0, 9, 9};
 
+	vector<Node*> path = map.dijkstra(map.nodes[start], map.nodes[goal]);
+	obj.vecPos.x = map.nodes[start].x;
+	obj.vecPos.y = map.nodes[start].y;
+
+	for (int i = 0; i < map.nodes.size(); i++) {
+		//map.nodes[i]->edge[0]->draw(renderer);
+		for (int k = 0; k < path.size(); k++) {
+			if (map.nodes[i]->myVec.x == path[k]->myVec.x && map.nodes[i]->myVec.y == path[k]->myVec.y) {
+				rect.x = map.nodes[i]->myVec.x - 4;
+				rect.y = map.nodes[i]->myVec.y - 4;
+				SDL_RenderDrawRect(renderer, &rect);
+			}
+		}
+		for (int j = 0; j != map.nodes[i]->edge.size(); j++) {
+			SDL_RenderDrawLine(renderer, map.nodes[i]->myVec.x, map.nodes[i]->myVec.y, map.nodes[i]->edge[j]->to->myVec.x, map.nodes[i]->edge[j]->to->myVec.y);
+		}
+	}
 }
-
