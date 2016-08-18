@@ -86,11 +86,14 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\include;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\Math\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;Math Assessment.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\Math\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,6 +122,8 @@
       <AdditionalLibraryDirectories>C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_ttf-2.0.12\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2_image-2.0.0\lib\x86;C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Math Game\dependencies\SDL2\SDL2-2.0.4\lib\x86;dependencies\Math\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;Math Assessment.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <FullProgramDatabaseFile>false</FullProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

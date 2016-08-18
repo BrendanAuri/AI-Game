@@ -1,17 +1,6 @@
 ﻿  AI.cpp
-AI.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-AI.cpp(48): warning C4018: '<': signed/unsigned mismatch
   main.cpp
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(143): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(144): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(164): warning C4018: '<': signed/unsigned mismatch
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(168): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  0 of 445 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 410 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-Math Assessment.lib(vector.obj) : warning LNK4099: PDB 'Math Assessment.pdb' was not found with 'Math Assessment.lib(vector.obj)' or at 'C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Release\Math Assessment.pdb'; linking object as if no debug info
-Math Assessment.lib(matrix.obj) : warning LNK4099: PDB 'Math Assessment.pdb' was not found with 'Math Assessment.lib(matrix.obj)' or at 'C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Release\Math Assessment.pdb'; linking object as if no debug info
   Math Game.vcxproj -> C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Release\Math Game.exe
-  Math Game.vcxproj -> C:\Users\brendan.chappel\Desktop\Ugh\AI-Game-master\Release\Math Game.pdb (Full PDB)

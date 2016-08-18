@@ -16,7 +16,7 @@ class Edge;
 class Node
 {
 public:
-	Vector2 myVec = Vector2(0, 0); // x y and travelled bool
+	Vector3 myVec = Vector3(0, 0, 0); // x y and travelled bool
 	bool traversed;
 	std::vector<Edge *> edge;
 	void addEdge(Edge * newEdge);

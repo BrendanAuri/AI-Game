@@ -50,7 +50,6 @@ public:
 
 	void draw(SDL_Renderer * rend,SDL_Texture * surf) {
 		//if (tex == nullptr) { tex = loadTexture(rend,surf); }
-
 		this->localSpace.setRotateZ(angle);
 
 		if (parent == nullptr) {
@@ -59,6 +58,8 @@ public:
 		else {
 			globalSpace = parent->globalSpace * this->localSpace ;
 		}
+		vecPos.x = localSpace.m31;
+		vecPos.y = localSpace.m32;
 
 		SDL_Rect rect;
 		rect.x = (int)globalSpace.m31;

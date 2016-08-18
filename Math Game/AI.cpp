@@ -30,7 +30,7 @@ Edge::Edge(int p_cost, Node * p_from, Node * p_to)
 void Edge::draw(SDL_Renderer * rend)
 {
 	SDL_SetRenderDrawColor(rend, 255, 255, 255, 0);
-	SDL_RenderDrawLine(rend, this->from->myVec.x, this->from->myVec.y, this->to->myVec.x, this->to->myVec.y);
+	SDL_RenderDrawLine(rend, (int)this->from->myVec.x, (int)this->from->myVec.y, (int)this->to->myVec.x, (int)this->to->myVec.y);
 }
 
 bool Map::findNode(vector<Node*> vec, Node * node)
@@ -45,7 +45,7 @@ bool Map::findNode(vector<Node*> vec, Node * node)
 	return result;
 }
 Node * Map::getNodeFromPos(Vector2 pos) {
-	for (int i = 0; i < nodes.size(); i++) {
+	for (unsigned int i = 0; i < nodes.size(); i++) {
 		if (this->nodes[i]->myVec.x == pos.x && this->nodes[i]->myVec.y == pos.y) {
 			return nodes[i];
 		}
@@ -57,14 +57,14 @@ Node * Map::getNodeFromPos(Vector2 pos) {
 Map::Map() {
 	//this->nodes.resize(COLS * ROWS);
 
-	for (int x = 0; x < COLS; x++) {
-		for (int y = 0; y < ROWS; y++) {
+	for (unsigned int x = 0; x < COLS; x++) {
+		for (unsigned int y = 0; y < ROWS; y++) {
 			if(!(y == x * x  + 3 || x == y * y + 3 || x == y % 10))
 				this->nodes.push_back(new Node(OFFSET + x * UNIT, OFFSET + y * UNIT, 0));
 		}
 	}
 
-	for (int i = 0; i < nodes.size(); i++){
+	for (unsigned int i = 0; i < nodes.size(); i++){
 		if (getNodeFromPos(Vector2(this->nodes[i]->myVec.x + UNIT, this->nodes[i]->myVec.y)) != nullptr) {
 			this->nodes[i]->addEdge(new Edge(UNIT, this->nodes[i], getNodeFromPos(Vector2(this->nodes[i]->myVec.x + UNIT, this->nodes[i]->myVec.y))));
 		}
@@ -99,7 +99,7 @@ vector<Node*> Map::dijkstra(Node * from, Node * to)
 		if (currentNode == to) {
 			break;
 		}
-		for (int i = 0; i != currentNode->edge.size(); i++) {
+		for (unsigned int i = 0; i != currentNode->edge.size(); i++) {
 			Edge * connection = currentNode->edge[i];
 			if (findNode(closedList, connection->to)) {
 				continue;

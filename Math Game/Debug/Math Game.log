@@ -1,11 +1,15 @@
 ﻿  main.cpp
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(142): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(143): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(162): warning C4018: '<': signed/unsigned mismatch
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(164): warning C4018: '<': signed/unsigned mismatch
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(166): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(167): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(172): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(151): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(158): warning C4018: '>': signed/unsigned mismatch
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(169): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(170): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(175): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(195): warning C4018: '<': signed/unsigned mismatch
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(199): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(212): warning C4018: '<': signed/unsigned mismatch
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(215): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(239): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\brendan.chappel\desktop\ugh\ai-game-master\math game\window.h(240): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Math Assessment.lib(vector.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 AI.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification

@@ -3,8 +3,13 @@
 #include <fstream>
 #include "objects.h"
 #include "AI.h"
+#include <Math.h>
+#include <time.h>
 
 Map map;
+
+int start = 5;
+int goal = 50;
 
 using namespace std;
 
@@ -56,6 +61,8 @@ public:
 	void Draw(SDL_Renderer* renderer, SDL_Event* e);
 };
 
+void Update(SDL_Renderer* rend);
+
 bool Window::initialize() {
 	if (SDL_Init(NULL) < 0) return false;
 
@@ -88,6 +95,7 @@ void Window::update() {
 		SDL_SetRenderDrawColor(this->SDLRender, 0, 0, 0, 0);
 		SDL_RenderClear(SDLRender);
 		Draw(SDLRender, &e);
+		Update(SDLRender);
 		SDL_RenderPresent(SDLRender);
 	}
 }
@@ -135,12 +143,101 @@ void move() {
 	if (keys[SDL_SCANCODE_LEFT]) { chl.localSpace.m31 -= 0.07f; }
 };
 
-void Window::Draw(SDL_Renderer* renderer, SDL_Event* e) {
+int pathNode = 0;
+Node* currentPositionNode = nullptr;
+void Seek(SDL_Renderer* renderer) {
+	for (unsigned int i = 0; i < map.nodes.size(); i++) {
+		for (unsigned int j = 0; j != map.nodes[i]->edge.size(); j++) {
+			SDL_RenderDrawLine(renderer, (int)map.nodes[i]->myVec.x, (int)map.nodes[i]->myVec.y, (int)map.nodes[i]->edge[j]->to->myVec.x, (int)map.nodes[i]->edge[j]->to->myVec.y);
+		}
+	}
+	//Seek AI
+	if (currentPositionNode != nullptr) {
+		SDL_Rect rect = { 0, 0, 9, 9 };
+		vector<Node*> path = map.dijkstra(currentPositionNode, map.nodes[map.nodes.size() - 1]);
+		if (!((unsigned int)pathNode > path.size() - 2)) {
+			pathNode++;
+			if (path.size() > 0 && (unsigned int)pathNode < path.size()) {
+				obj.localSpace.m31 = path[pathNode]->myVec.x;
+				obj.localSpace.m32 = path[pathNode]->myVec.y;
+			}
+		}
+		for (unsigned int i = 0; i < map.nodes.size(); i++) {
+			//map.nodes[i]->edge[0]->draw(renderer);
+			for (unsigned int k = 0; k < path.size(); k++) {
+				if (map.nodes[i]->myVec.x == path[k]->myVec.x && map.nodes[i]->myVec.y == path[k]->myVec.y) {
+					rect.x = (int)map.nodes[i]->myVec.x - 4;
+					rect.y = (int)map.nodes[i]->myVec.y - 4;
+					SDL_RenderDrawRect(renderer, &rect);
+				}
+			}
+			for (int j = 0; j != map.nodes[i]->edge.size(); j++) {
+				SDL_RenderDrawLine(renderer, (int)map.nodes[i]->myVec.x, (int)map.nodes[i]->myVec.y, (int)map.nodes[i]->edge[j]->to->myVec.x, (int)map.nodes[i]->edge[j]->to->myVec.y);
+			}
+		}
+	}
 
+
+	//obj.vecPos = map.nodes[0]->myVec;
+}
+
+void Wander(SDL_Renderer* renderer) {
+	vector<Node*> path = map.dijkstra(map.nodes[start], map.nodes[goal]);
+
+	static int currentPathNode = 0;
+	if (path.size() > (unsigned int)0) {
+		obj.localSpace.m31 = path[currentPathNode]->myVec.x;
+		obj.localSpace.m32 = path[currentPathNode]->myVec.y;
+	}
+	else {
+		goal = rand() % map.nodes.size();
+	}
+	if ((unsigned int)currentPathNode < path.size() - 1 && path.size() != 0) {
+		currentPositionNode = path[currentPathNode];
+		currentPathNode++;
+	}
+	srand((unsigned int)time(NULL));
+
+	if (obj.localSpace.m31 == map.nodes[goal]->myVec.x && obj.localSpace.m32 == map.nodes[goal]->myVec.y) {
+		start = goal;
+		if (rand() % map.nodes.size() <= map.nodes.size() && rand() % map.nodes.size() > 0) {
+			goal = rand() % map.nodes.size();
+		}
+		else {
+			goal = 10;
+		}
+		currentPathNode = 0;
+	}
+	if (goal == start || goal == start + 1 || goal == start -1) goal = rand() % map.nodes.size();
+	for (unsigned int i = 0; i < map.nodes.size(); i++) {
+		//map.nodes[i]->edge[0]->draw(renderer);
+		for (int j = 0; j != map.nodes[i]->edge.size(); j++) {
+			SDL_RenderDrawLine(renderer, (int)map.nodes[i]->myVec.x, (int)map.nodes[i]->myVec.y, (int)map.nodes[i]->edge[j]->to->myVec.x, (int)map.nodes[i]->edge[j]->to->myVec.y);
+		}
+	}
+}
+
+void Update(SDL_Renderer * rend) {
+	void(*behaviour)(SDL_Renderer*);
+
+	const Uint8* keys = SDL_GetKeyboardState(NULL);
+
+	if (keys[SDL_SCANCODE_F]) {
+		behaviour = &Seek;
+	}
+	else {
+		behaviour = &Wander;
+		pathNode = 0;
+	}
+
+	behaviour(rend);
+};
+
+void Window::Draw(SDL_Renderer* renderer, SDL_Event* e) {
 	for (int x = 0; x < 16; x++) {
 		for (int y = 0; y < 12; y++) {
-			tiles[x + y].localSpace.m31 = x * 70;
-			tiles[x + y].localSpace.m32 = y * 70;
+			tiles[x + y].localSpace.m31 = (float)x * 70;
+			tiles[x + y].localSpace.m32 = (float)y * 70;
 			tiles[x + y].draw(SDLRender, tile.tex);
 		}
 	}
@@ -150,28 +247,8 @@ void Window::Draw(SDL_Renderer* renderer, SDL_Event* e) {
 
 	//move();
 
-	int start = 5;
-	int goal = 50;
-
 	obj.draw(this->SDLRender, obj.tex);
 	//chl.draw(this->SDLRender, obj.tex);
-	SDL_Rect rect = {0, 0, 9, 9};
 
-	vector<Node*> path = map.dijkstra(map.nodes[start], map.nodes[goal]);
-	obj.vecPos.x = map.nodes[start].x;
-	obj.vecPos.y = map.nodes[start].y;
 
-	for (int i = 0; i < map.nodes.size(); i++) {
-		//map.nodes[i]->edge[0]->draw(renderer);
-		for (int k = 0; k < path.size(); k++) {
-			if (map.nodes[i]->myVec.x == path[k]->myVec.x && map.nodes[i]->myVec.y == path[k]->myVec.y) {
-				rect.x = map.nodes[i]->myVec.x - 4;
-				rect.y = map.nodes[i]->myVec.y - 4;
-				SDL_RenderDrawRect(renderer, &rect);
-			}
-		}
-		for (int j = 0; j != map.nodes[i]->edge.size(); j++) {
-			SDL_RenderDrawLine(renderer, map.nodes[i]->myVec.x, map.nodes[i]->myVec.y, map.nodes[i]->edge[j]->to->myVec.x, map.nodes[i]->edge[j]->to->myVec.y);
-		}
-	}
 }
